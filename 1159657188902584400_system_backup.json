@@ -1,0 +1,25 @@
+{
+    "system": {
+        "name": "MildSys",
+        "description": "**__General Info__**\n- System name: MildSys\n- Collective name: Arden\n- Pronouns: he/him\n- Gender: male\n- Age: 19\n- System type: C-DID\n- Relationship status: single\n- Orientation: gay\n\n**__Frequent Fronters__**\n- Arend\n- Jack\n- Albrecht\n\n**__Boundaries__**\n- DMs: open\n- Friend requests: open\n- Pings: yes\n- Flirting: ask\n- Please use my collective name and pronouns when referring to me, even if i am proxying.",
+        "avatar": null,
+        "banner": null,
+        "pronouns": "He/him",
+        "color": 16754688
+    },
+    "alters": {
+        "Arend": {
+            "displayname": "Arend",
+            "pronouns": "he/him",
+            "description": "Host or something idk.",
+            "avatar": "https://cdn.discordapp.com/attachments/1371100259970977895/1371950534864666776/2615986_fw0HATjA.png?ex=68250001&is=6823ae81&hm=2a9a35aed098d166602f01cb45ae6cabac014dfa9cf59036a5a8c680eb5c5483&",
+            "proxyavatar": null,
+            "banner": null,
+            "proxy": "Arend:",
+            "aliases": [],
+            "color": 16754688,
+            "use_embed": false
+        }
+    },
+    "folders": {}
+}

@@ -1,0 +1,36 @@
+{
+    "Test2": {
+        "pronouns": "he/him",
+        "description": "\ufe6b\u2800\u2800\u2282\u2800 **__nam__e**\u2800 \u2283\n\u256d\u203f\u203f . . .\u2800 zzz\n \u2b51\u2800\u2b51\u2800\u2b51\n\u2506**ag__e__** *;;* \n\u2506**pro__nouns__** *;;* \n\u2506**gen__der__** *;;*  \n\u2506**sexual__ity__** *;;*  \n\u2506**pro__xy__** *;;*\n \n\u2570 \n\u256d \u2800\n\u2b51\u2800\u2b51\u2800\u2b51\n\u2506**ro__le__** *;;* \n\u2506**sour__ce__** *;;*\n\u2506**fron__ting__ activi__ty__** *;;*\n\u2506**st__atus__** *;;* \n \n\u2570\n\u256d \u203f\u203f\u2800\n\u2b51\u2800\u2b51\u2800\u2b51\n\u2506**relation__ship__** *;;* \n\u2506**par__tner__** *;;* \n\u2506mo__no__ \u2b51 am__bi__ \u2b51 po__ly__\n\u2506**loo__king__** *;;* \n\n\u2570",
+        "avatar": "https://cdn.discordapp.com/attachments/1370048900827844731/1370825363193856151/20250510_182803.jpg?ex=6820e81b&is=681f969b&hm=ecbfa39e35fb8563de5c556fd188ef5b8a8a3a53310f148e3485c1f2062c46f4&",
+        "proxy": null,
+        "displayname": "\u26d3\ufe0f \u2022 Test\u00b9  2.0\u00b2 - he.him",
+        "banner": "https://cdn.discordapp.com/attachments/1370048900827844731/1370829725626269766/973c7eb2b2010905ddc01944c641e34a.jpg?ex=6820ec2b&is=681f9aab&hm=110d58e905ff89e0f63bd853a9a8563fe42dd799bd08769f2ec1c1790f68605b&"
+    },
+    "Test3": {
+        "pronouns": "he/him",
+        "description": "blub T3.",
+        "avatar": null,
+        "proxy": null
+    },
+    "Test4": {
+        "displayname": "Test4",
+        "pronouns": "-",
+        "description": "-",
+        "avatar": null,
+        "banner": null,
+        "proxy": null,
+        "aliases": [],
+        "use_embed": false
+    },
+    "Test": {
+        "displayname": "Test",
+        "pronouns": "-",
+        "description": "- -",
+        "avatar": null,
+        "banner": null,
+        "proxy": "T.",
+        "aliases": [],
+        "use_embed": true
+    }
+}
