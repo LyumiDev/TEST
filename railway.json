@@ -1,0 +1,8 @@
+{
+  "build": {
+    "builder": "Python"
+  },
+  "deploy": {
+    "start": "python3 main.py"
+  }
+}
