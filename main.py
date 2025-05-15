@@ -1,12 +1,10 @@
-import os
-import json
-import random
 import discord
 from discord.ext import commands, tasks
-from flask import Flask, jsonify
-import threading
+import json
+import os
+import random
+import aiohttp
 
-app = Flask(__name__)
 
 # Set up intents
 intents = discord.Intents.default()
@@ -17,7 +15,10 @@ intents.message_content = True
 # Initialize the bot
 bot = commands.Bot(command_prefix="!", intents=intents, case_insensitive=True)
 
+
+
 bot.remove_command("help")  # Remove the default help command
+
 
 # Set up status options
 status_options = [
@@ -30,35 +31,7 @@ status_options = [
     "Serving multiple servers"
 ]
 
-# Load global profiles from file
-PROFILES_FILE = "global_profiles.json"
-
-def load_global_profiles():
-    if os.path.exists(PROFILES_FILE):
-        try:
-            with open(PROFILES_FILE, "r") as f:
-                return json.load(f)
-        except json.JSONDecodeError:
-            print("Error: global_profiles.json is corrupted. Resetting file.")
-            return {}
-    return {}
-
-def save_profiles(data):
-    with open(PROFILES_FILE, "w") as f:
-        json.dump(data, f, indent=4)
-
-global_profiles = load_global_profiles()
-
-# Flask routes for health checks
-@app.route("/")
-def home():
-    return "Bot is running!"
-
-@app.route("/health")
-def health():
-    return jsonify({"status": "Bot is healthy!"})
-
-# Discord bot events
+# Update the bot's status every 60 seconds
 @bot.event
 async def on_ready():
     print(f"✅ Bot is online as {bot.user}")
@@ -73,7 +46,27 @@ async def update_status():
     new_status = random.choice(status_options)
     await bot.change_presence(activity=discord.Game(name=new_status))
 
-# Discord bot commands
+
+
+import os
+import json
+
+PROFILES_FILE = "global_profiles.json"
+
+# Load global profiles from the file
+def load_global_profiles():
+    if os.path.exists(PROFILES_FILE):
+        with open(PROFILES_FILE, "r") as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return {}
+    return {}
+
+global_profiles = load_global_profiles()
+
+
+
 @bot.command(name="create_system")
 async def create_system(ctx, *, system_name: str):
     user_id = str(ctx.author.id)
@@ -98,23 +91,6 @@ async def create_system(ctx, *, system_name: str):
 
     save_profiles(global_profiles)
     await ctx.send(f"✅ System '{system_name}' created successfully!")
-
-# Run Flask server in a separate thread
-def run_flask():
-    app.run(host="0.0.0.0", port=8080)
-
-# Run the Discord bot
-def run_discord():
-    bot.run(os.environ["NEW_BOT_TOKEN"])
-
-# Start both Flask and Discord bot
-threading.Thread(target=run_flask).start()
-run_discord()
-
-
-# Start both Flask and Discord bot
-threading.Thread(target=run_flask).start()
-run_discord()
 
 
 
@@ -1812,4 +1788,4 @@ async def on_message(message):
 import os
 
 # Use the bot token from the Replit secret
-bot.run(os.environ["NEW_BOT_TOKEN"])
+bot.run(os.getenv("NEW_BOT_TOKEN"))
