@@ -1,4 +1,14 @@
-schemaVersion: 1.1
+schemaVersion: 1.2
+
+endpoints:
+  - name: discord-bot
+    displayName: Discord Bot
+    service:
+      basePath: /
+      port: 8080
+    type: REST
+    networkVisibilities:
+      - Public
 
 configurations:
   env:
@@ -8,7 +18,3 @@ configurations:
           displayName: Discord Bot Token
           required: true
           type: secret
-
-build:
-  runtime: python
-  command: python3 app.py
