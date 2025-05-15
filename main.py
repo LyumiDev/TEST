@@ -106,13 +106,6 @@ async def create_system(ctx, *, system_name: str):
 def run_flask():
     app.run(host="0.0.0.0", port=8080)
 
-# Run the Discord bot
-def run_discord():
-    token = os.getenv("NEW_BOT_TOKEN")
-    if not token:
-        print("❌ NEW_BOT_TOKEN environment variable not set")
-        return
-    bot.run(token)
 
 # Run both Flask and Discord bot
 threading.Thread(target=run_flask).start()
