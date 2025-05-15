@@ -1,11 +1,10 @@
 import os
 import discord
 from discord.ext import commands, tasks
-import json
-import aiohttp
-import random
 from flask import Flask, jsonify
 import threading
+import json
+import random
 
 app = Flask(__name__)
 
@@ -75,6 +74,20 @@ async def change_status():
 async def update_status():
     new_status = random.choice(status_options)
     await bot.change_presence(activity=discord.Game(name=new_status))
+
+# Run Flask server in a separate thread
+def run_flask():
+    app.run(host="0.0.0.0", port=8080)
+
+# Run Discord bot in a separate thread
+def run_discord():
+    bot.run(os.getenv("NEW_BOT_TOKEN"))
+
+# Start both Flask and Discord in separate threads
+if __name__ == "__main__":
+    threading.Thread(target=run_flask).start()
+    run_discord()
+
 
 # Discord bot commands
 @bot.command(name="create_system")
