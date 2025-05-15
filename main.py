@@ -3,7 +3,7 @@ import json
 import random
 import discord
 from discord.ext import commands, tasks
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 import threading
 
 app = Flask(__name__)
@@ -32,6 +32,7 @@ status_options = [
 
 # Load global profiles from file
 PROFILES_FILE = "global_profiles.json"
+
 def load_global_profiles():
     if os.path.exists(PROFILES_FILE):
         try:
@@ -48,6 +49,7 @@ def save_profiles(data):
 
 global_profiles = load_global_profiles()
 
+# Flask routes for health checks
 @app.route("/")
 def home():
     return "Bot is running!"
@@ -56,6 +58,7 @@ def home():
 def health():
     return jsonify({"status": "Bot is healthy!"})
 
+# Discord bot events
 @bot.event
 async def on_ready():
     print(f"✅ Bot is online as {bot.user}")
@@ -70,6 +73,7 @@ async def update_status():
     new_status = random.choice(status_options)
     await bot.change_presence(activity=discord.Game(name=new_status))
 
+# Discord bot commands
 @bot.command(name="create_system")
 async def create_system(ctx, *, system_name: str):
     user_id = str(ctx.author.id)
@@ -95,12 +99,15 @@ async def create_system(ctx, *, system_name: str):
     save_profiles(global_profiles)
     await ctx.send(f"✅ System '{system_name}' created successfully!")
 
+# Run Flask server in a separate thread
 def run_flask():
     app.run(host="0.0.0.0", port=8080)
 
+# Run the Discord bot
+def run_discord():
+    bot.run(os.environ["NEW_BOT_TOKEN"])
 
-
-# Run both Flask and Discord bot
+# Start both Flask and Discord bot
 threading.Thread(target=run_flask).start()
 run_discord()
 
