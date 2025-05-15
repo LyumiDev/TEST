@@ -99,7 +99,7 @@ def run_flask():
     app.run(host="0.0.0.0", port=8080)
 
 def run_discord():
-    bot.run(os.environ["BOT_TOKEN"])
+    bot.run(os.environ["NEW_BOT_TOKEN"])
 
 # Run both Flask and Discord bot
 threading.Thread(target=run_flask).start()
