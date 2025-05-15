@@ -1,8 +1,15 @@
 schemaVersion: 1.2
 
+type: service
+name: pixel-bot
+context: /
+build:
+  buildpacks:
+    - python
+
 endpoints:
-  - name: discord-bot
-    displayName: Discord Bot
+  - name: pixel-bot
+    displayName: Pixel Bot
     service:
       basePath: /
       port: 8080
@@ -12,7 +19,7 @@ endpoints:
 
 configurations:
   env:
-    - name: BOT_TOKEN
+    - name: NEW_BOT_TOKEN
       valueFrom:
         configForm:
           displayName: Discord Bot Token
