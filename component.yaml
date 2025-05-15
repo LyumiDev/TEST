@@ -1,0 +1,10 @@
+schemaVersion: 1.1
+
+configurations:
+  env:
+    - name: BOT_TOKEN
+      valueFrom:
+        configForm:
+          displayName: Discord Bot Token
+          required: true
+          type: secret
